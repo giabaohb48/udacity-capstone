@@ -24,6 +24,9 @@ provider:
     TODOS_TABLE: serverless-application-todos-${self:provider.stage}
     S3_BUCKET_NAME: baovg1-serverless-application-todos-${self:provider.stage}
     SIGNED_EXPIRATION: 300
+  
+  logs:
+    restApi: true
 
 custom:
   documentation:

@@ -18,6 +18,13 @@ export const handler: APIGatewayProxyHandler = async (event: APIGatewayProxyEven
     const newTodo: CreateTodoRequest = JSON.parse(event.body)
     const todoItem = await createToDo(newTodo, jwtToken)
 
+   if (newTodo.name.charAt[0] === ' '){
+      return {
+        statusCode: 400,
+        body: JSON.stringify('ERROR: The name of item do not empty!')
+      }
+    }
+
     return {
       statusCode: 201,
       headers: {
